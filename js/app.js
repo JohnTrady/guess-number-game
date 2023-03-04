@@ -32,6 +32,7 @@ const setGameOver = () => {
     console.log(randomNumber);
     resetButton.classList.remove('_visible');
     prevGuesses.classList.remove('_visible');
+    guessField.focus();
  }
 
  const chechGuess = () => {

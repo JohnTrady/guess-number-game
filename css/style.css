@@ -121,6 +121,10 @@ h1 , h2 ,h3 ,h4 ,h5 ,h6 , p {
     color: rgb(255, 255, 255, 0.5);
     font-size: 16px;
 }
+.form-input:focus {
+    box-shadow:0 0 15px rgb(255, 255, 255, 0.5);
+    border: 1px solid #fff;
+}
 
 
 .form-button {
