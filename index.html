@@ -19,19 +19,38 @@
 
                    <div class="game__body">
                        <div id="last-result" class="game__last-result"></div>
+                       <div  class="result-box">
+                        <p id="previous-guesses" class="game__previous-guesses"></p>
+                        <p id="low-or-high" class="game__low-or-high"></p>
+                    </div>
+                  
+                       
+                        
+                        
+                   <div class="form-box">
                     <form  class="game__form form">
-                         <input tabindex="1" placeholder="Enter guess" id="guess-field" type="number" class="form-input">
-                         <button id="submit-button" type="submit" class="form-button">Submit</button>
-                    </form>
-                    <div>
                         <div>
-                    <p id="previous-guesses" class="game__previous-guesses"></p>
+                         <input  tabindex="1" placeholder="Enter guess" id="guess-field" type="number" class="form-input" disabled>
+                        </div>
+                        <div id="numpad" class="form-numpad numpad">
+                            <button type="button" class="numpad-num"><span>1</span></button>
+                            <button type="button" class="numpad-num"><span>2</span></button>
+                            <button type="button" class="numpad-num"><span>3</span></button>
+                            <button type="button" class="numpad-num"><span>4</span></button>
+                            <button type="button" class="numpad-num"><span>5</span></button>
+                            <button type="button" class="numpad-num"><span>6</span></button>
+                            <button type="button" class="numpad-num"><span>7</span></button>
+                            <button type="button" class="numpad-num"><span>8</span></button>
+                            <button type="button" class="numpad-num"><span>9</span></button>
+                            <button type="button" class="numpad-num num-null"><span>0</span></button>
+                        </div>
+                        <div>
+                         <button data-btn="reset" id="submit-button" type="button" class="form-button">Start New Game</button>
+                        </div>
+                    </form>
                 </div>
-                </div>
-                <div class="game__result-box">
-                    <p id="low-or-high" class="game__low-or-high"></p>
-                    <button id="reset-btn" class="reset-button">Start New Game</button>
-                </div>
+                    
+                   
                    
                    </div>
              </div>
@@ -40,6 +59,6 @@
     
 
 
-    <script src="js/app.js"></script>
+    <script type="module" src="js/app.js"></script>
 </body>
 </html>

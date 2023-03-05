@@ -1,6 +1,6 @@
 'use sctrict';
 
-
+import {isMobile} from "../js/isMobile.js";
 const lastResult = document.getElementById('last-result');
 const guessField  =document.getElementById('guess-field');
 const submitButton = document.getElementById('submit-button');
@@ -8,15 +8,16 @@ const prevGuesses = document.getElementById('previous-guesses');
 const lowOrHigh = document.getElementById('low-or-high');
 const resetButton = document.getElementById('reset-btn');
 const txt = document.getElementById('text');
+const numpad = document.getElementById('numpad');
 let randomNumber = Math.floor(Math.random() *  100) +1;
 let guessCount = 1;
-console.log(randomNumber)
+console.log(randomNumber);
+guessField.value = '';
 
 const setGameOver = () => {
     guessField.disabled = true;
-    submitButton.disabled = true;
-    submitButton.classList.add('_disabled');
-    resetButton.classList.add('_visible');
+    submitButton.setAttribute('data-btn', 'reset');
+    submitButton.textContent ='Start New Game'
     
 
  }
@@ -24,17 +25,17 @@ const setGameOver = () => {
  const  resetGame = () =>{
     guessCount = 1;
     guessField.disabled = false;
-    submitButton.disabled = false;
-    submitButton.classList.remove('_disabled');
     guessField.value = '';
     lastResult.textContent = '';
     prevGuesses.textContent = '';
     randomNumber = Math.floor(Math.random() *  100) +1;
     console.log(randomNumber);
-    resetButton.classList.remove('_visible');
     prevGuesses.classList.remove('_visible');
-    txt.style.display ='block';
-    // guessField.focus();
+    submitButton.setAttribute('data-btn', 'submit');
+    submitButton.textContent = 'Submit';
+    txt.style.display = 'none';
+    numpad.classList.add('_visible');
+    if(!isMobile.any()) guessField.focus();
  }
 
  const chechGuess = () => {
@@ -70,23 +71,24 @@ const setGameOver = () => {
         }
         guessCount++;
         guessField.value = '';
-        guessField.focus();
+        if(!isMobile.any()) guessField.focus();
     }
  }
 
  document.addEventListener('click', e =>{ 
     const target = e.target
-    if(target.closest('#submit-button')) {
+    if(target.closest('[data-btn="submit"]')) {
         e.preventDefault();
         chechGuess();
-    } else if (target.closest('#reset-btn')) {
+    } else if (target.closest('[data-btn="reset"]')) {
+        e.preventDefault();
         resetGame();
+    }
+
+    if (target.closest('.numpad-num')) {
+        guessField.value += target.textContent;
     }
 
     
  });
 
- guessField.addEventListener('focus', e => {
-    txt.style.display= 'none';
-   
- })
