@@ -13,6 +13,7 @@ let randomNumber = Math.floor(Math.random() *  100) +1;
 let guessCount = 1;
 console.log(randomNumber);
 guessField.value = '';
+let lastDigit = guessField.value.length - 1;
 
 const setGameOver = () => {
     guessField.disabled = true;
@@ -87,6 +88,8 @@ const setGameOver = () => {
 
     if (target.closest('.numpad-num')) {
         guessField.value += target.textContent;
+    } else if (target.closest('.numpad-clear')) {
+        guessField.value = guessField.value.slice(0, -1);
     }
 
     
