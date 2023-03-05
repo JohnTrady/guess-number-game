@@ -18,7 +18,8 @@ let lastDigit = guessField.value.length - 1;
 const setGameOver = () => {
     guessField.disabled = true;
     submitButton.setAttribute('data-btn', 'reset');
-    submitButton.textContent ='Start New Game'
+    submitButton.textContent ='Start New Game';
+    lowOrHigh.innerHTML = `Random Number: <span style="color:yellow; font-size:23px">${randomNumber}</span>`;
     
 
  }
@@ -54,11 +55,9 @@ const setGameOver = () => {
         lastResult.textContent = 'Congratulations! You got it right!';
         lastResult.style.color =' #23B123'
         lowOrHigh.textContent = '';
-        lowOrHigh.classList.remove('_visible');
         setGameOver();
     } else if (guessCount === 10) {
         lastResult.textContent = '!!!GAME OVER!!!';
-        lowOrHigh.classList.remove('_visible');
         setGameOver();
     } else {
         lastResult.textContent = 'Wrong!!!';
