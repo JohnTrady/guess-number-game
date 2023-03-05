@@ -19,7 +19,7 @@ const setGameOver = () => {
     guessField.disabled = true;
     submitButton.setAttribute('data-btn', 'reset');
     submitButton.textContent ='Start New Game';
-    lowOrHigh.innerHTML = `Random Number: <span style="color:yellow; font-size:23px">${randomNumber}</span>`;
+    lowOrHigh.innerHTML = `Random Number: <span style="color:yellow;">${randomNumber}</span>`;
     
 
  }
