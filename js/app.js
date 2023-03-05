@@ -30,6 +30,7 @@ const setGameOver = () => {
     guessField.value = '';
     lastResult.textContent = '';
     prevGuesses.textContent = '';
+    lowOrHigh.classList.remove('_visible');
     randomNumber = Math.floor(Math.random() *  100) +1;
     console.log(randomNumber);
     prevGuesses.classList.remove('_visible');
